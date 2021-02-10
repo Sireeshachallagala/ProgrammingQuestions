@@ -2,28 +2,26 @@ import java.util.Arrays;
 
 public class MoveZeroesToEnd {
 	public static void moveZeroes(int arr[]) {
+		//Find the length of an array
 		int len=arr.length;
-		int last=len-1;
-		//int max=arr[0];
+		//take a count variable
+		int count=0;
 		for(int i=0;i<len;i++) {
-			if(i!=last && arr[i]>arr[i+1]){
-				int temp=arr[i];
-				arr[i]=arr[i+1];
-				arr[i+1]=temp;				
+			//move all non zero elements to front                                                                                                     bbbbbbbbbbbbbbbbbb
+			if(arr[i]> 0) {
+				arr[count++]=arr[i];
 			}
-			if(arr[i]==0) {
-				int temp=arr[last];
-				arr[last]=arr[i];
-				arr[i]=temp;
-			}
-			
 			
 		}
+		while(count<len) {
+			arr[count++]=0;
+		}
+		
 		System.out.println(Arrays.toString(arr));
 	}
 
 	public static void main(String[] args) {
-		int a[]= {0,1,0,3,12};
+		int a[]= {5,0,1,6,0,12};
 		moveZeroes(a);
 
 	}
